@@ -1,6 +1,49 @@
+//to display today's date:
+var todayDate = moment().format('dddd, MMM Do YYYY');
+$("#currentDay").html(todayDate);
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+$(document).ready(function () {
+  //click listener
+  $(".saveBtn").on("click", function () {
+    var text = $(this).siblings(".description").val();
+    var time = $(this).parent().attr("id");
+    // then Save the text in local storage
+    localStorage.setItem(time, text);
+})
+
+
+
+// obtain current hours
+function timeTracker() {
+  var timeNow = moment().hour();
+
+  // then loop over blocks of time
+  $(".time-block").each(function () {
+    var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+
+    // Then check time and add the classes for color indicators
+    if (blockTime < timeNow) {
+        $(this).removeClass("future");
+        $(this).removeClass("present");
+        $(this).addClass("past");
+    }
+    else if (blockTime === timeNow) {
+        $(this).removeClass("past");
+        $(this).removeClass("future");
+        $(this).addClass("present");
+    }
+    else {
+        $(this).removeClass("present");
+        $(this).removeClass("past");
+        $(this).addClass("future");
+
+    }
+})
+}
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
