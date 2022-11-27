@@ -1,6 +1,7 @@
 //to display today's date:
 var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
+console.log(moment());
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
@@ -10,7 +11,7 @@ $(document).ready(function () {
   $(".saveBtn").on("click", function () {
     var text = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
-    // then Save the text in local storage
+    // Save the text in local storage
     localStorage.setItem(time, text);
   })
 
@@ -43,7 +44,7 @@ $(document).ready(function () {
       }
     })
   }
-  
+
   // Get item from local storage if any
   $("#hour8 .description").val(localStorage.getItem("hour8"));
   $("#hour9 .description").val(localStorage.getItem("hour9"));
