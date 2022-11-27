@@ -87,6 +87,12 @@ This Challenge is graded based on the following criteria:
 
 * Repository contains quality README file with description, screenshot, and link to deployed application
 
+### Deployment Site:
+
+https://miahhub.github.io/WorkDayScheduler/
+
+###Repository:  https://github.com/MiahHub
+
 ## Review
 
 You are required to submit the following for review:
